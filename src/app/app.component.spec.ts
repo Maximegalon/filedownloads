@@ -30,6 +30,6 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('filedownloads app is running!');
+    expect(compiled.querySelector('.toolbar h1')?.textContent).toContain('File Downloader 2000!!!');
   });
 });
