@@ -3,9 +3,9 @@
         <ng-template pTemplate="caption">
             <div>
                 <app-checkbox [state]="tableState" (stateChanged)="handleSelectionClick($event)"></app-checkbox>
-                <label *ngIf="!selectedRowCount">None Selected</label>
-                <label *ngIf="selectedRowCount">Selected {{ selectedRowCount }}</label>
-                <div *ngIf="selectedRowCount" class="download" (click)="handleDialogDisplay(true)"><img src="assets/svgs/download.svg" alt="Download selected files" />Download Selected</div>
+                <label *ngIf="!selectedFileCount">None Selected</label>
+                <label *ngIf="selectedFileCount">Selected {{ selectedFileCount }}</label>
+                <div *ngIf="selectedFileCount" class="download" (click)="handleDialogDisplay(true)"><img src="assets/svgs/download.svg" alt="Download selected files" />Download Selected</div>
             </div>
         </ng-template>
         <ng-template pTemplate="header">
@@ -40,10 +40,14 @@
 
     <!-- @TODO: Make a component that wraps this for reusability -->
     <p-dialog header="File Downloads" [(visible)]="showModal" [style]="{width: '50vw'}" [modal]="true" [draggable]="false">
+        <!-- BUSINESSRULE: Only those that have a status of "available" are currently able to be downloaded. Your implementation should manage this. -->
+        <div  *ngIf="selectedUnavailableFileCount" class="message">File(s) in <span class="notavailable">red</span> are not available to be downloaded.</div>
+
         <div class="downloads">
             <ng-container *ngFor="let file of selectedFiles">
-                <div title="{{ file.device }}">{{ file.device }}</div>
-                <div title="{{ file.path }}"><a>{{ file.path }}</a></div>
+                <div title="{{ file.device }}" [ngClass]="{'notavailable': file.status !== 'available'}">{{ file.device }}</div>
+                <div *ngIf="file.status !== 'available'" title="{{ file.path }}" class="notavailable">{{ file.path }}</div>
+                <div *ngIf="file.status === 'available'" title="{{ file.path }}"><a>{{ file.path }}</a></div>
             </ng-container>
         </div>
         <ng-template pTemplate="footer">

@@ -26,12 +26,23 @@
         }
     }
 
+    // @NOTE: Dialog classes, should be kept seperate
+    .message {
+        font-size: small;
+        margin-bottom: 1rem;
+    }
+
+    .notavailable {
+        color: $app-color-warning;
+        cursor: default !important;
+    }
+
     .downloads {
         display: grid;
         grid-template-columns: 25% 75%;
         gap: 5px;
 
-        * {
+        div {
             text-overflow: ellipsis;
             overflow: hidden;
             white-space: nowrap;

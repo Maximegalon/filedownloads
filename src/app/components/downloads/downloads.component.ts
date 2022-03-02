@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { FilesService } from '../../services/files.service';
-import { File } from '../../interfaces/file';
+import { File, FileStatus } from '../../interfaces/file';
 import { MultiCheckboxState } from '../checkbox/checkbox.model';
 
 @Component({
@@ -76,12 +76,22 @@ export class DownloadsComponent implements OnDestroy, OnInit {
   }
 
   /**
-   * The number of row currently selected
+   * The number of files currently selected
    *
    * @returns {number}
    * @memberof DownloadsComponent
    */
-  get selectedRowCount(): number {
+  get selectedFileCount(): number {
     return this.selectedFiles.length;
+  }
+
+  /**
+   * The number of files currently selected that are not available
+   *
+   * @returns {number}
+   * @memberof DownloadsComponent
+   */
+   get selectedUnavailableFileCount(): number {
+    return this.selectedFiles.filter(f => f.status !== FileStatus.Available).length;
   }
 }
