@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/angular/types-6-0';
-import { CheckboxComponent } from '../app/components/checkbox/checkbox.component';
-import { MultiCheckboxState } from '../app/components/checkbox/checkbox.model';
+import { CheckboxComponent } from './checkbox.component';
+import { MultiCheckboxState } from './checkbox.model';
 
 export default {
   title: 'Component Library/Checkbox',

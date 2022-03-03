@@ -1,23 +1,17 @@
-# Filedownloads
+# Filedownloads appliation
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+For your consideration
 
-## Development server
+## Setup
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+1. Install node and npm (version I used are 14.15.1 and  6.14.8)
+2. Run npm i
 
-## Build
+## Commands that can be run
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+1. npm run start        // Runs the application
+2. npm run build        // Runs the production build without errors
+3. npm run test         // Runs all the unit tests successfully
+4. npm run lint         // Lints the code successfully
+5. npm run docs:json    // Succesfully generates the documentation output
+5. npm run storybook    // Runs the storybook server to see components working outside the application
